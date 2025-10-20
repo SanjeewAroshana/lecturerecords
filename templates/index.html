@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTSL Campus - Lecturer Records</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">📚</div>
+                    <div>
+                        <h1>NTSL Campus - Lecturer Records</h1>
+                        <p>Manage working and traveling records efficiently</p>
+                    </div>
+                </div>
+                <div class="user-controls">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div>
+                            <p id="userWelcome">Welcome, User</p>
+                            <p id="userRole" style="font-size: 0.8rem; opacity: 0.8;">Role</p>
+                        </div>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="section-tabs">
+            <div class="tab active" data-target="working-form">Working Records</div>
+            <div class="tab" data-target="traveling-form">Traveling Records</div>
+            <div class="tab" data-target="records-view">View Records</div>
+        </div>
+        <div id="workingRecordMessage" class="success-message" style="display: none;">
+            Working record added successfully!
+        </div>
+        
+        <!-- Working Record Section -->
+        <section id="working-form" class="form-section active">
+            <h2>Add Working Record</h2>
+            <form id="workingRecordForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="workDate">Date</label>
+                        <input type="date" id="workDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workMonth">Month</label>
+                        <select id="workMonth" required>
+                            <option value="">Select Month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lecturerName">Lecturer Name</label>
+                        <select id="lecturerName" name="lecturerName" required>
+                            <option value="">Select Lecturer</option>
+                            <option value="M. D. Bhagya laksha virajani">M. D. Bhagya laksha virajani</option>
+                            <option value="H. A. Chalana niroshan">H. A. Chalana niroshan</option>
+                            <option value="Chamodya rashmiprabha">Chamodya rashmiprabha</option>
+                            <option value="Daham anuradha dissanayaka">Daham anuradha dissanayaka</option>
+                            <option value="W. Dilini sathsara wijerathna">W. Dilini sathsara wijerathna</option>
+                            <option value="Hirushan hettiarachchi">Hirushan hettiarachchi</option>
+                            <option value="Navoda senadheera">Navoda senadheera</option>
+                            <option value="Nilusha wimalasena">Nilusha wimalasena</option>
+                            <option value="P. N. A. Guruge">P. N. A. Guruge</option>
+                            <option value="Piyumi prarthana amarakoon">Piyumi prarthana amarakoon</option>
+                            <option value="Rachitha rasanga rajapaksha">Rachitha rasanga rajapaksha</option>
+                            <option value="Sandun malwalage">Sandun malwalage</option>
+                            <option value="Shashikanjana bandara">Shashikanjana bandara</option>
+                            <option value="Shashinka vidusara">Shashinka vidusara</option>
+                            <option value="Suneth tharaka">Suneth tharaka</option>
+                            <option value="Thilanka wickramasinghe">Thilanka wickramasinghe</option>
+                            <option value="Uthpala thilakshana">Uthpala thilakshana</option>
+                            <option value="M. A. Upeshi kanishka">M. A. Upeshi kanishka</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="facultyName">Faculty Name</label>
+                        <select id="facultyName" name="facultyName" required>
+                            <option value="">Select Faculty</option>
+                            <option value="Faculty of Art">Faculty of Art</option>
+                            <option value="Faculty of Science">Faculty of Science</option>
+                            <option value="Faculty of Management">Faculty of Management</option>
+                            <option value="Faculty of Engineering">Faculty of Engineering</option>
+                            <option value="Faculty of Technology">Faculty of Technology</option>
+                            <option value="Faculty of Education">Faculty of Education</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sourceName">Source Name</label>
+                        <input type="text" id="sourceName" placeholder="Enter source name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lessonName">Lesson Name</label>
+                        <input type="text" id="lessonName" placeholder="Enter lesson name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Lecture Time</label>
+                        <div class="time-group">
+                            <input type="time" id="startTime" required>
+                            <input type="time" id="endTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Mode</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="online" name="mode" value="Online" checked>
+                                <label for="online">Online</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="physical" name="mode" value="Physical">
+                                <label for="physical">Physical</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                    <button type="submit" class="btn btn-primary">Save Working Record</button>
+                </div>
+            </form>
+        </section>
+        <div id="travelingRecordMessage" class="success-message" style="display: none;">
+            Traveling record added successfully!
+        </div>
+        <!-- Traveling Record Section -->
+        <section id="traveling-form" class="form-section">
+            <h2>Add Traveling Record</h2>
+            <form id="travelingRecordForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="travelDate">Date</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Travel Time</label>
+                        <div class="time-group">
+                            <input type="time" id="travelStartTime" placeholder="Start Time" required>
+                            <input type="time" id="travelEndTime" placeholder="End Time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="purpose">Purpose</label>
+                        <input type="text" id="purpose" placeholder="Enter purpose of travel" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmationToken">Confirmation Token</label>
+                        <input type="text" id="confirmationToken" placeholder="Enter confirmation token" required>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                    <button type="submit" class="btn btn-primary">Save Traveling Record</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Records View Section -->
+        <section id="records-view" class="form-section">
+            <div class="records-container">
+                <div class="records-header">
+                    <h2>All Records</h2>
+                    <div>
+                        <select id="recordFilter">
+                            <option value="all">All Records</option>
+                            <option value="working">Working Records</option>
+                            <option value="traveling">Traveling Records</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="workingRecordsTable">
+                    <h3>Working Records</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Lecturer</th>
+                                <th>Faculty</th>
+                                <th>Lesson</th>
+                                <th>Time</th>
+                                <th>Mode</th>
+                                <th>Action</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody id="workingRecordsBody">
+                            <!-- Working records will be populated here -->
+                        </tbody>
+                    </table>
+                    <div id="workingEmptyState" class="empty-state">
+                        <div>📝</div>
+                        <p>No working records added yet</p>
+                    </div>
+                </div>
+                
+                <div id="travelingRecordsTable" style="margin-top: 30px;">
+                    <h3>Traveling Records</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Purpose</th>
+                                <th>Token</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="travelingRecordsBody">
+                            <!-- Traveling records will be populated here -->
+                        </tbody>
+                    </table>
+                    <div id="travelingEmptyState" class="empty-state">
+                        <div>✈️</div>
+                        <p>No traveling records added yet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>NTSL Campus Lecturer Records System &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        const workingRecordsData = JSON.parse('{{ working_records_json|escapejs }}');
+        const travelingRecordsData = JSON.parse('{{ traveling_records_json|escapejs }}');
+        const userData = JSON.parse('{{ user_data|escapejs }}');
+
+        const facultyLecturers = {
+            "Faculty of Art": [
+                "M. D. Bhagya laksha virajani",
+                "H. A. Chalana niroshan",
+                "Chamodya rashmiprabha",
+                "Daham anuradha dissanayaka",
+                "W. Dilini sathsara wijerathna",
+                "Hirushan hettiarachchi",
+                "Navoda senadheera",
+                "Nilusha wimalasena",
+                "P. N. A. Guruge",
+                "Piyumi prarthana amarakoon",
+                "Rachitha rasanga rajapaksha",
+                "Sandun malwalage",
+                "Shashikanjana bandara",
+                "Shashinka vidusara",
+                "Suneth tharaka",
+                "Thilanka wickramasinghe",
+                "Uthpala thilakshana",
+                "M. A. Upeshi kanishka"
+            ],
+            "Faculty of Science": [
+                "Nishadi Madhushika",
+                "Nilma Miss",
+                "Dilini Miss",
+                "Niroshani Miss",
+                "Theekshana Miss",
+                "Dileka Miss",
+                "Lakshan sir",
+                "Niwantha Manage"
+            ],
+            "Faculty of Management": [
+                "Charitha Miss",
+                "Hemendra Sir",
+                "Chapa miss",
+                "Harsha sir"
+            ],
+            "Faculty of Engineering": [
+                "NA"
+            ],
+            "Faculty of Education": [
+                "Hansi Miss",
+                "Nimalka Miss",
+                "Dulani Miss"
+            ],
+            "Faculty of Technology": [
+                "Viduranga sir",
+                "Vidusara sir",
+                "Dieepa sir"
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update user info display
+            const userWelcome = document.getElementById('userWelcome');
+            const userRole = document.getElementById('userRole');
+            const userAvatar = document.getElementById('userAvatar');
+
+            if (userData && userData.full_name) {
+                userWelcome.textContent = `Welcome, ${userData.full_name}`;
+                userRole.textContent = userData.role;
+                userAvatar.textContent = userData.full_name.charAt(0).toUpperCase();
+            }
+
+            const facultySelect = document.getElementById('facultyName');
+            const lecturerSelect = document.getElementById('lecturerName');
+
+            // Store the initial options for "Select Lecturer"
+            const initialLecturerOptions = Array.from(lecturerSelect.options).map(option => ({
+                value: option.value,
+                text: option.text
+            }));
+
+            facultySelect.addEventListener('change', () => {
+                const selectedFaculty = facultySelect.value;
+                
+                // Clear current lecturer options, but keep the "Select Lecturer" option
+                lecturerSelect.innerHTML = '';
+                const defaultOption = document.createElement('option');
+                defaultOption.value = "";
+                defaultOption.textContent = "Select Lecturer";
+                lecturerSelect.appendChild(defaultOption);
+
+                if (selectedFaculty && facultyLecturers[selectedFaculty]) {
+                    facultyLecturers[selectedFaculty].forEach(lecturer => {
+                        const option = document.createElement('option');
+                        option.value = lecturer;
+                        option.textContent = lecturer;
+                        lecturerSelect.appendChild(option);
+                    });
+                } else {
+                    // If no faculty is selected or faculty not found, revert to initial options (excluding the default "Select Lecturer" which is already added)
+                    initialLecturerOptions.slice(1).forEach(opt => {
+                        const option = document.createElement('option');
+                        option.value = opt.value;
+                        option.textContent = opt.text;
+                        lecturerSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // Trigger change event on page load if a faculty is pre-selected (e.g., from a previous submission)
+            if (facultySelect.value) {
+                facultySelect.dispatchEvent(new Event('change'));
+            }
+
+            // Populate records tables
+            const workingRecordsBody = document.getElementById('workingRecordsBody');
+            const travelingRecordsBody = document.getElementById('travelingRecordsBody');
+            const workingEmptyState = document.getElementById('workingEmptyState');
+            const travelingEmptyState = document.getElementById('travelingEmptyState');
+
+            function populateWorkingRecords() {
+                workingRecordsBody.innerHTML = '';
+                if (workingRecordsData.length === 0) {
+                    workingEmptyState.style.display = 'flex';
+                } else {
+                    workingEmptyState.style.display = 'none';
+                    workingRecordsData.forEach(record => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${record.fields.date}</td>
+                            <td>${record.fields.lecturer_name}</td>
+                            <td>${record.fields.faculty_name}</td>
+                            <td>${record.fields.lesson_name}</td>
+                            <td>${record.fields.start_time} - ${record.fields.end_time}</td>
+                            <td>${record.fields.mode}</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Delete</button>
+                            </td>
+                        `;
+                        workingRecordsBody.appendChild(tr);
+                    });
+                }
+            }
+
+            function populateTravelingRecords() {
+                travelingRecordsBody.innerHTML = '';
+                if (travelingRecordsData.length === 0) {
+                    travelingEmptyState.style.display = 'flex';
+                } else {
+                    travelingEmptyState.style.display = 'none';
+                    travelingRecordsData.forEach(record => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${record.fields.date}</td>
+                            <td>${record.fields.start_time} - ${record.fields.end_time}</td>
+                            <td>${record.fields.purpose}</td>
+                            <td>${record.fields.confirmation_token}</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Delete</button>
+                            </td>
+                        `;
+                        travelingRecordsBody.appendChild(tr);
+                    });
+                }
+            }
+
+            populateWorkingRecords();
+            populateTravelingRecords();
+
+            // Tab switching logic
+            const tabs = document.querySelectorAll('.section-tabs .tab');
+            const formSections = document.querySelectorAll('.form-section');
+            const recordFilter = document.getElementById('recordFilter');
+            const workingRecordsTable = document.getElementById('workingRecordsTable');
+            const travelingRecordsTable = document.getElementById('travelingRecordsTable');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const target = tab.dataset.target;
+
+                    formSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        }
+                    });
+
+                    if (target === 'records-view') {
+                        filterRecords();
+                    }
+                });
+            });
+
+            recordFilter.addEventListener('change', filterRecords);
+
+            function filterRecords() {
+                const selectedFilter = recordFilter.value;
+                workingRecordsTable.style.display = 'none';
+                travelingRecordsTable.style.display = 'none';
+
+                if (selectedFilter === 'all' || selectedFilter === 'working') {
+                    workingRecordsTable.style.display = 'block';
+                }
+                if (selectedFilter === 'all' || selectedFilter === 'traveling') {
+                    travelingRecordsTable.style.display = 'block';
+                }
+            }
+
+            // Initial filter application
+            filterRecords();
+
+            // Handle Working Record Form Submission
+            const workingRecordForm = document.getElementById('workingRecordForm');
+            const workingRecordMessage = document.getElementById('workingRecordMessage');
+
+            workingRecordForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                // Here you would typically send the form data to the server using fetch or XMLHttpRequest
+                // For this task, we'll just simulate success.
+
+                workingRecordMessage.style.display = 'block'; // Show the success message
+
+                // Optionally, hide the message after a few seconds
+                setTimeout(() => {
+                    workingRecordMessage.style.display = 'none';
+                }, 7000); // Hide after 7 seconds
+
+                workingRecordForm.reset(); // Clear the form fields
+            });
+
+            // Handle Traveling Record Form Submission
+            const travelingRecordForm = document.getElementById('travelingRecordForm');
+            const travelingRecordMessage = document.getElementById('travelingRecordMessage');
+
+            travelingRecordForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                // Here you would typically send the form data to the server using fetch or XMLHttpRequest
+                // For this task, we'll just simulate success.
+
+                travelingRecordMessage.style.display = 'block'; // Show the success message
+
+                // Optionally, hide the message after a few seconds
+                setTimeout(() => {
+                    travelingRecordMessage.style.display = 'none';
+                }, 7000); // Hide after 7 seconds
+
+                travelingRecordForm.reset(); // Clear the form fields
+            });
+        });
+    </script>
+    <script src="{% static 'home/js/script.js' %}"></script>
+</body>
+</html>

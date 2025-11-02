@@ -6,7 +6,7 @@ The Lecturer Records system is designed to help the institution manage informati
 
 The application is currently hosted at: https://lecturerecords.pythonanywhere.com/
 
-It is tailored for NTSL Campus (Sri Lanka) and supports the administrative needs of the staff/faculty management.
+ This is supports the administrative needs of the staff/faculty management.
 
 # Features
 
@@ -44,17 +44,17 @@ Authentication: Built‑in user login system
 Project Link: https://github.com/SanjeewAroshana/lecturerecords
 
 # Loging
+<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 38 04" src="https://github.com/user-attachments/assets/8d80940f-4719-4701-a262-e006c9bcdfcc" />
 
-<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 38 04" src="https://github.com/user-attachments/assets/a2bbb1be-42c6-40bf-9555-02b53dd817b5" />
+
+
+
 
 # Home 
-<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 29 03" src="https://github.com/user-attachments/assets/53ae3c1f-4860-4262-aa60-c1be9a5b6c78" />
+<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 19 07" src="https://github.com/user-attachments/assets/1fbdae50-e3af-41c3-a293-5cabccbbd6c1" />
 
+<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 29 13" src="https://github.com/user-attachments/assets/c1d5a6b7-d487-4eb0-86f7-360847e51a8e" />
 
-<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 19 07" src="https://github.com/user-attachments/assets/acb16acd-bf94-4851-81c2-a033728042c0" />
-
-
-<img width="1280" height="800" alt="Screenshot 2025-10-20 at 14 29 13" src="https://github.com/user-attachments/assets/587e6786-0007-49d1-afa5-f8436287f62b" />
 
 # Mobile Responsive App Veiw
 
@@ -62,12 +62,11 @@ Project Link: https://github.com/SanjeewAroshana/lecturerecords
 
 
 
+![Screenshot_20251020-143843](https://github.com/user-attachments/assets/4fafdb93-94a9-45cb-9fad-30e342090912)
 
 
 
-![Screenshot_20251020-143843](https://github.com/user-attachments/assets/2395cead-c557-4897-bcb9-df632c600a29)
-![Screenshot_20251020-144035](https://github.com/user-attachments/assets/7ad03367-6965-4f63-a33f-d75fe921a96c)
-
+![Screenshot_20251020-144035](https://github.com/user-attachments/assets/f5ac181d-9c81-4b93-9690-8706d674d313)
 
 
 
